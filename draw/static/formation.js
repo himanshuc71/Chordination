@@ -8,7 +8,6 @@ $(document).ready(()=>{
 
   // INITIALIZATION
   var canvas = document.getElementById('myCanvas');
-  //Save SVG from paper.js as a file.
   
   paper.setup(canvas);
   var tool = new paper.Tool();
@@ -217,7 +216,7 @@ $(document).ready(()=>{
         circText.content = i;
       }
       circText.fontSize = 40;
-      circText.fontFamily = 'Avenir';
+      circText.fontFamily = 'Avenir, Nunito';
       circText.justification = 'center';
       
       var group = new paper.Group([circ, circText]);
@@ -315,7 +314,7 @@ $(document).ready(()=>{
         }
         namePopup.fillColor = "white";
         namePopup.fontSize = 20;
-        namePopup.fontFamily = 'Avenir';
+        namePopup.fontFamily = 'Avenir, Nunito';
         popupRect = new paper.Path.Rectangle(namePopup.bounds);
         popupRect.fillColor = 'black';
         popupRect.strokeColor = 'black';
@@ -481,6 +480,5 @@ $(document).ready(()=>{
     //Dancer Index: circToDancer[circArray[i]]   circToDancer = {group:1, ..}
     //Dancer Name: data[Dancer Index]
     //Dancer Number: Dancer Index
-      
 });
 //https://cors-anywhere.herokuapp.com/
