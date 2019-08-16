@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chordination-formations</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'draw/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'formation.js' %}"> </script>
+    <link href="https://fonts.googleapis.com/css?family=Cabin Sketch" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open Sans" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Nunito " rel='stylesheet'>
+
+</head>
+<body>
+  <div id="canvases">
+    <canvas id="myCanvas" resize="true"></canvas>
+    <select id="selectionOptions" size="9" style="overflow: auto">
+      <optgroup label="Modes">
+        <option id="normalCheckBox" selected="selected">Move</option>
+        <option id="switchCheckBox">Switch</option>
+        <option id="groupCheckBox">Group Move</option>
+        <option id="colorCheckBox">Color</option>
+      </optgroup>
+      <optgroup label="Dancers">
+        <option id="addCheckBox">Add</option>
+        <option id="removeCheckBox">Remove</option>
+        <option id="dancerAssignment">Assign</option>
+      </optgroup>
+    </select>
+    
+    <select id="colorOptions" size="5" style="overflow: auto; display: none">
+      <optgroup id="colorList" label="Colors">
+        <option id="color0" selected="selected" style="background-color: white">White</option>
+        <option id="color1"style="background-color: orangered">Red</option> 
+        <option id="color2" style="background-color: limegreen">Green</option> 
+        <option id="color3" style="background-color: deepskyblue">Blue</option> 
+      </optgroup>
+    </select>
+
+    <select id="rosterAssignment" size="5" style="overflow: auto; display: none">
+      <optgroup id="rosterList" label="Roster">
+      </optgroup>
+    </select>
+  </div>  
+  <div class = "rightcolumn">
+  <button id = "menu">
+    Main Menu
+  </button>
+  <button id="s-formations">
+    Saved Formations
+  </button>
+    <div id="formationOptions"> 
+      <h3>
+        Formation Options
+      </h3>
+      Show Formations <input type="checkbox" class="checkboxes" id="presetCheckBox"><br>
+      Display Grid (>5) <input type="checkbox" class="checkboxes" id="gridCheckBox"><br>
+      Grid Step <input type="number" id="gridStep" value="1" min="1">
+    </div>  
+    <div id="infoSection">
+       <hr class = "divider">
+        Formation Name: 
+        <input type="text" id ="finput"><br>
+        <button id="save" type="submit">Save </button>
+        <button id="delete" type="submit">Delete </button>
+        <hr class = "divider">
+       </div>
+       <label for="notes">Formation notes</label> 
+       <textarea id = "notes" name= "notes" rows="4" cols="40" placeholder="Log formation notes here"></textarea>
+    </div>
+  </div>
+  <div class="preset">
+    <br>
+      <h3>
+        Formations
+      </h3>
+      <div class = "image-container">
+<!--         Preset Formations
+        <div id = "1stimage">
+          <img id = "img1" src = "/static/draw/images/preset1.jpg"><br><hr>
+        </div>
+        <div id = "2ndimage">
+          <img id = "img2" src = "/static/draw/images/preset2.jpg"><br><hr>
+        </div>
+        <div id = "3rdimage">
+          <img id = "img3" src = "/static/draw/images/preset2.jpg"><br><hr>
+        </div>
+        Saved Formations <br> -->
+      </div>
+    </div> 
+
+</body>
+  <script>
+    var csrf_thing = '{{ csrf_token }}';
+  </script>  
+</html>

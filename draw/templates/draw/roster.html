@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Roster</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'roster.css' %}">
+    <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cabin Sketch" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Open Sans" rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel='stylesheet'>
+    </head>
+
+    <body>
+      <div class = "hero">
+        <button id = "menu">
+          Main Menu
+        </button>
+        <h1 style="font-family: 'Cabin Sketch'">
+          Current Roster
+        </h1>
+
+        <div id="roster-container">
+          <div id="roster">
+<!--             {% for dancer in dancers %}
+              {{dancer}}
+              <hr/>
+              <br>
+            {% empty %}
+              No dancers in the roster.
+            {% endfor %} -->
+          </div>
+        </div>
+
+        <form action="" method="POST">
+          {% csrf_token %}
+          <input type="text" name = "first_name" id="input_name" onfocus="this.value=''"><br>
+          <button type="submit" id="submit">
+            Add Member
+          </button>
+          <button type="submit" id="delete">
+            Remove Member
+          </button>
+        </form>
+      </div>
+    </body>
+
+    <script>
+      $(document).ready(function() {
+        $("#menu").on("click", () =>{ 
+          location.href = "{% url 'menu' %}";
+        });  
+        
+        function looping_through_roster(roster_json){
+          $("#roster").empty();
+          $.each(roster_json, function( id, name_color ) {
+            $("#roster").append("<p style='margin-bottom: 10px'>" + id + ". " + name_color["name"] + "</p>");
+          }); 
+        }
+        
+        // makes a get request to the db and adds the roster names to the dom
+        $.get("{% url 'roster_data' %}", function(data) {
+          // show roster
+          var dancers_json = data;
+          looping_through_roster(dancers_json);
+        });
+        
+        // makes a post request without the page reloading and adds the newly added dancer to the roster and displays on the dom
+        $("#submit").on("click", function(){
+          $.post("{% url 'roster_data' %}", {"first_name": $("#input_name").val() , action: 'add', csrfmiddlewaretoken: '{{ csrf_token }}'}, function(data) {
+          // show newly added name
+          var dancers_json = data;  
+          looping_through_roster(dancers_json);
+          $("#input_name").val('');
+        })
+          return false;
+        });
+        
+        // makes a post request without the page reloading and deletes the entered dancer from the roster and displays the updated roster on the dom
+        $("#delete").on("click", function(){
+          $.post("{% url 'roster_data' %}", {"first_name": $("#input_name").val() , action: 'delete', csrfmiddlewaretoken: '{{ csrf_token }}'}, function(data) {
+          // show roster with deleted name
+          var dancers_json = data;  
+          looping_through_roster(dancers_json);
+          $("#input_name").val('');  
+        })
+          return false;
+        });
+        
+      });
+    </script>
+  
+</html>

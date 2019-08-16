@@ -1,0 +1,121 @@
+#canvases {
+  border-style: solid;
+  margin: 5px;
+  width: 1000px;
+  height: 700px;
+  float: left;
+  position: relative;
+}
+
+.rightcolumn {
+  width: 400px;
+  height: 400px;
+  display: inline-block;
+}
+
+.divider {
+  border: dotted 0.8px black;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#selectionOptions {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 12%;
+}
+
+#colorOptions {
+  position: absolute;
+  right: 2%;
+  top: 34%;
+  width: 12%;
+}
+
+#colorOptions > optgroup > option {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+#rosterAssignment {
+  position: absolute;
+  right: 2%;
+  top: 34%;
+  width: 12%;
+  text-align: left;
+}
+
+body {
+  background-image: url('/static/draw/images/pastel.png');
+  font-family: Avenir, Nunito;
+  text-align: center;
+}
+
+button {
+  margin-top: 10px;
+  font-family: Open Sans;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: darkslateblue;
+  color: white;
+  border-color: darkslateblue;
+  cursor: pointer;
+} 
+#gridStep {
+  margin-top: 5px;
+} 
+h3{
+  font-weight: bold;
+  font-size: 25px;
+}
+#formationOptions {
+  font-size: 18px;
+  margin-top: 10px;
+}  
+#infoSection {
+  font-size: 18px;
+  margin-top: 5px;
+}
+#saveFormation {
+  font-size: 18px;
+  margin-top: 5px;
+}
+.preset {
+  margin-top: 10px;
+  text-align: center;
+  display: none;
+}
+
+input[type='checkbox'] {
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.image-container{
+  width: 400px;
+  height: 200px;
+  display: inline-block;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+select, input, textarea {
+  background-color: lightblue;
+}
+
+img {
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+  width: 280px;
+  height: 140px;
+}
+
+#options {
+  margin-top: 15px;
+}

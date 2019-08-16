@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Chordination Main</title>
+
+      <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
+      <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
+      <link href="https://fonts.googleapis.com/css?family=Sarina&display=swap" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Cabin Sketch" rel='stylesheet'>
+      <link href="https://fonts.googleapis.com/css?family=Open Sans" rel='stylesheet'>
+
+    <style type="text/css">
+        body {
+          background: rgb(238,174,202);
+          background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+          background-attachment: fixed;
+        }
+        h1 {
+          text-align: center;
+          font-weight: normal;
+          font-family: 'Cabin Sketch';
+          font-size: 75px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          color: darkslateblue;
+          
+        }
+        img {
+          text-align: center;
+          display: block;
+          width: 29%;
+          height: 40%;
+          margin: auto;
+        }
+        button {
+          margin: 20px auto;
+          display: block;
+          font-family: 'Open Sans';
+          border-radius: 10px;
+          font-size: 20px;
+          background-color: darkslateblue;
+          color: white;
+          border-color: darkslateblue;
+          cursor: pointer;
+        }
+      </style>
+  </head>
+  <body>
+    <h1>
+      Chordination
+    </h1>
+    <img src = "/static/draw/images/finalLogo.png">
+    <button id = "roster" type = "button">
+      Manage Roster
+    </button>
+    <button id = "formation" type = "button">
+      Create Formation
+    </button>
+  </body>
+  <script>
+    document.getElementById("roster").onclick = function () {
+       location.href = "/draw/roster/";
+    };
+    document.getElementById("formation").onclick = function () {
+       location.href = "/draw/formation/";
+    };
+  </script>
+</html>
