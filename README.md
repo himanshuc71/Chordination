@@ -12,13 +12,17 @@ pip3 install websockets django channels channels_redis
 
 To run redis server: 
 sudo apt-get install redis-server
+
 sudo systemctl enable redis-server.service
+
 redis-cli
 
 To run the server: 
 python3 manage.py runserver 0.0.0.0:3000
 
 django db cmds:
+
 Create user to make changes with django UI: python manage.py createsuperuser
+
 Reset db: python manage.py reset_db (from django_extensions)
 
