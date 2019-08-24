@@ -3,6 +3,7 @@ Chordination will help directors and choreographers to refine the beautiful arti
 
 
 Demo video: https://youtu.be/UnY9-GNlZ-E
+Medium article on the whole design process: https://medium.com/@sophie2220/cs-160-final-project-chordination-36b51fb78059
 
 Tech used: Python, Django, Django databases, HTML, CSS, Javascript, jQuery, Paper.js, Adobe Illustrator (For Logo design)
 
