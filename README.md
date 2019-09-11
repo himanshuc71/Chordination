@@ -8,6 +8,8 @@ Medium article on the whole design process: https://medium.com/@sophie2220/cs-16
 
 Tech used: Python, Django, Django databases, HTML, CSS, Javascript, jQuery, Paper.js, Adobe Illustrator (For Logo design)
 
+![](final-project%20image.png)
+
 To run: 
 
 pip3 install websockets django channels channels_redis
