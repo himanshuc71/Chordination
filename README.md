@@ -6,6 +6,8 @@ Demo video: https://youtu.be/UnY9-GNlZ-E
 
 Medium article on the whole design process: https://medium.com/@sophie2220/cs-160-final-project-chordination-36b51fb78059
 
+App can be used tried at: https://chordination-hchotwani921366.codeanyapp.com/draw/menu/
+
 Tech used: Python, Django, Django databases, HTML, CSS, Javascript, jQuery, Paper.js, Adobe Illustrator (For Logo design)
 
 ![](final-project%20image.png)
